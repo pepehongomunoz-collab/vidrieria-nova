@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion"
-import { Menu, X, ShoppingBag, Search, User, LogOut } from "lucide-react"
+import { Menu, X, ShoppingBag, Search, User, LogOut, Settings } from "lucide-react"
 import { navigation } from "@/config/navigation"
 import { siteConfig } from "@/config/site"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
@@ -20,7 +20,7 @@ export function Header() {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
   const { openCart, totalItems } = useCartStore()
-  const { user, signOut } = useAuth()
+  const { user, isAdmin, signOut } = useAuth()
 
   useEffect(() => setMounted(true), [])
 

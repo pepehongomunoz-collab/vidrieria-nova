@@ -4,6 +4,8 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/providers/auth-provider"
 import { Loader2 } from "lucide-react"
+import { AdminSidebar } from "@/components/admin/admin-sidebar"
+import { AdminTopbar } from "@/components/admin/admin-topbar"
 
 export default function AdminLayout({
   children,
@@ -31,5 +33,15 @@ export default function AdminLayout({
     )
   }
 
-  return <>{children}</>
+  return (
+    <div className="flex min-h-screen bg-muted/20">
+      <AdminSidebar />
+      <div className="flex w-full flex-col md:pl-64">
+        <AdminTopbar />
+        <main className="flex-1 p-4 md:p-8">
+          {children}
+        </main>
+      </div>
+    </div>
+  )
 }
